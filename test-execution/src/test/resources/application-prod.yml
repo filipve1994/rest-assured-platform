@@ -1,0 +1,8 @@
+api:
+  baseUrl: "https://api.example.com"
+  retry:
+    maxAttempts: 1
+
+auth:
+  clientId: "${API_AUTH_CLIENTID}"
+  clientSecret: "${API_AUTH_CLIENTSECRET}"

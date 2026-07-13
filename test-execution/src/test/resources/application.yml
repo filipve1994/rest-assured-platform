@@ -1,0 +1,46 @@
+# =====================================================================================
+# DEFAULT / BASE CONFIGURATION for the test-execution module.
+# Values here apply to every environment unless overridden in application-<env>.yml.
+# ConfigLoader (framework-config) deep-merges:
+#   application.yml  <-  application-{env}.yml  <-  ENV VARS / -D
+# =====================================================================================
+
+api:
+  connectTimeoutMs: 10000
+  readTimeoutMs: 15000
+  retry:
+    maxAttempts: 3
+    backoffMs: 500
+  logging:
+    requestsAndResponses: true
+    logOnlyOnFailure: true
+
+auth:
+  tokenUrl: "${api.baseUrl}/oauth/token"
+  grantType: "client_credentials"
+  clientId: "changeme-client-id"
+  clientSecret: "changeme-client-secret"
+  tokenRefreshSkewSeconds: 30
+
+report:
+  allureResultsDir: "target/allure-results"
+
+testdata:
+  basePath: "testdata"
+
+# ---------------------------------------------------------------------------
+# Fixed public/demo APIs used purely for the example scenarios under
+# com.framework.examples.* - these are NOT "the system under test" and their
+# base URLs don't vary per environment.
+# ---------------------------------------------------------------------------
+publicApis:
+  restfulApiDev:
+    baseUrl: "https://api.restful-api.dev"
+  reqres:
+    baseUrl: "https://reqres.in/api"
+    apiKey: "${REQRES_API_KEY}"
+  jsonPlaceholder:
+    baseUrl: "https://jsonplaceholder.typicode.com"
+
+env:
+  active: "dev"

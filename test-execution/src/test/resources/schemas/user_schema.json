@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User",
+  "type": "object",
+  "required": ["id", "email"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "firstName": { "type": "string" },
+    "lastName": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "phoneNumber": { "type": "string" }
+  },
+  "additionalProperties": true
+}

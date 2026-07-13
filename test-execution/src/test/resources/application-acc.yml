@@ -1,0 +1,6 @@
+api:
+  baseUrl: "https://acc.api.example.com"
+
+auth:
+  clientId: "acc-client-id"
+  clientSecret: "acc-client-secret"

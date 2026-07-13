@@ -1,0 +1,8 @@
+api:
+  baseUrl: "https://qa.api.example.com"
+  logging:
+    logOnlyOnFailure: false
+
+auth:
+  clientId: "qa-client-id"
+  clientSecret: "qa-client-secret"
