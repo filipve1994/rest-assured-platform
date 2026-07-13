@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Baseline Logback appenders shared across the platform. Consuming modules
+  (like test-execution) should NOT copy/paste this - instead their own
+  logback-test.xml should <include> it and layer on any module-specific
+  loggers:
+
+    <configuration>
+        <include resource="logback-base.xml"/>
+        <logger name="com.mycompany.extra" level="DEBUG"/>
+    </configuration>
+-->
+<included>
+
+    <property name="LOG_DIR" value="target/logs"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) [%thread] %cyan(%logger{36}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/test-run.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="HTTP_TRAFFIC" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/http-traffic.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="io.restassured" level="INFO" additivity="false">
+        <appender-ref ref="HTTP_TRAFFIC"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="org.apache.http" level="WARN"/>
+    <logger name="org.apache.hc" level="WARN"/>
+    <logger name="io.qameta.allure" level="WARN"/>
+    <logger name="com.google.inject" level="WARN"/>
+
+    <logger name="com.framework" level="DEBUG"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</included>
