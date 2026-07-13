@@ -10,6 +10,12 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+
+
+allure-results/
+allure-report/
+.env
+
 # Package Files #
 *.jar
 *.war

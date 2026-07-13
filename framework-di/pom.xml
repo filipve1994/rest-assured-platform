@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.framework</groupId>
+        <artifactId>rest-assured-platform</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>framework-di</artifactId>
+    <name>Framework :: Dependency Injection</name>
+    <description>
+        Wires every other framework-* module together with Google Guice and
+        exposes a JUnit 5 extension that injects @Inject fields into test
+        instances. This is the ONLY module allowed to depend on all the
+        others - it is the composition root of the platform.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.framework</groupId>
+            <artifactId>framework-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.framework</groupId>
+            <artifactId>framework-auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.framework</groupId>
+            <artifactId>framework-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.framework</groupId>
+            <artifactId>framework-reporting</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

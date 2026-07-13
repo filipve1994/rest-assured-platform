@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.framework</groupId>
+        <artifactId>rest-assured-platform</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>framework-utils</artifactId>
+    <name>Framework :: Utils</name>
+    <description>
+        Stateless helper utilities: JSON (de)serialization + fixture loading,
+        response validation/assertions, and random test data generation.
+        These stay plain static utility classes rather than DI-managed beans -
+        they hold no state and have nothing meaningful to inject, so wrapping
+        them in DI would only add ceremony.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
