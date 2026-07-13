@@ -15,13 +15,28 @@
     </description>
 
     <modules>
+    <module>framework-bom</module>
+        <module>framework-core</module>
         <module>framework-config</module>
-        <module>framework-auth</module>
+        <module>framework-context</module>
         <module>framework-http</module>
+        <module>framework-auth</module>
+        <module>framework-json</module>
+        <module>framework-assertions</module>
+        <!--<module>framework-steps</module>-->
         <module>framework-reporting</module>
+        <module>framework-junit</module>
+        <module>framework-testdata</module>
+        <module>framework-openapi</module>
         <module>framework-utils</module>
         <module>framework-di</module>
+
         <module>test-execution</module>
+
+        <module>examples</module>
+        <!--<module>examples/jsonplaceholder-tests</module>-->
+        <!--<module>examples/restful-api-dev-tests</module>-->
+
     </modules>
 
 	<properties>
@@ -46,15 +61,15 @@
         <jakarta-inject.version>2.0.1</jakarta-inject.version>
 
         <!-- JSON / YAML -->
-        <jackson.version>2.18.2</jackson.version>
+        <jackson.version>3.0.0</jackson.version>
 
         <!-- Reporting -->
-        <allure.version>2.29.0</allure.version>
+        <allure.version>2.29.1</allure.version>
         <aspectj.version>1.9.22.1</aspectj.version>
 
         <!-- Logging -->
-        <slf4j.version>2.0.16</slf4j.version>
-        <logback.version>1.5.12</logback.version>
+        <slf4j.version>2.0.17</slf4j.version>
+        <logback.version>1.5.18</logback.version>
 
         <!-- Utilities -->
         <lombok.version>1.18.36</lombok.version>
@@ -153,16 +168,22 @@
             </dependency>
 
              <!-- third-party libraries -->
+
+            <!-- REST ASSURED -->
+
             <dependency>
                 <groupId>io.rest-assured</groupId>
                 <artifactId>rest-assured</artifactId>
                 <version>${rest-assured.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.rest-assured</groupId>
                 <artifactId>json-schema-validator</artifactId>
                 <version>${rest-assured.version}</version>
             </dependency>
+
+
             <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
@@ -173,6 +194,8 @@
                 <artifactId>jakarta.inject-api</artifactId>
                 <version>${jakarta-inject.version}</version>
             </dependency>
+
+            <!-- LOGGING -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -183,11 +206,14 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
+
+            <!-- ASSERTJ -->
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.awaitility</groupId>
                 <artifactId>awaitility</artifactId>
