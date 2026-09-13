@@ -43,7 +43,7 @@
 
             <!-- Dependency injection -->
         <guice.version>7.0.0</guice.version>
-        <jakarta-inject.version>2.0.1</jakarta-inject.version>
+        <jakarta-inject.version>2.0.1.MR</jakarta-inject.version>
 
         <!-- JSON / YAML -->
         <jackson.version>2.18.2</jackson.version>
