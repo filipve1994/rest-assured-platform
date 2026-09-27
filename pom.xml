@@ -50,7 +50,7 @@
 
         <!-- Reporting -->
         <allure.version>2.29.0</allure.version>
-        <aspectj.version>1.9.22.1</aspectj.version>
+        <aspectj.version>1.9.25.1</aspectj.version>
 
         <!-- Logging -->
         <slf4j.version>2.0.16</slf4j.version>
